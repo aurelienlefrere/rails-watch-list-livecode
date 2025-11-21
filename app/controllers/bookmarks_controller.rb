@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   before_action :set_list, only: [:new, :create]
 
+
   def new
     # @list ici est commenté puisqu'on utilise le callback, ligne 2
     # @list = List.find(params[:list_id])
@@ -28,7 +29,7 @@ class BookmarksController < ApplicationController
   private
 
   def set_bookmark
-    # A FAIRE
+    # A FAIRE éventuellement
   end
 
   def set_list
@@ -36,6 +37,8 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
+    # Bookmark a 3 colonnes : comment, list_id et movie_id. On a déjà list_id grâce à la ligne 15. J'ai donc besoin de
+    # permettre: comment et movie_id
     params.require(:bookmark).permit(:comment, :movie_id)
   end
 end

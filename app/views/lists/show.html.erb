@@ -18,11 +18,17 @@
     <% @list.movies.each do |movie| %>
 
     <%# TRES IMPORTANT ICI ET NON VU DANS LE LIVECODE  %>
-    <%# On a besoin de ""bookmark"" pour afficher le commentaire ligne 29. Pour le trouver, on cherche avec les 2 id (list et movie)  %>
+    <%# On a besoin de ""bookmark"" pour afficher le commentaire ligne 37. Pour le trouver, on cherche avec les 2 id (list et movie)  %>
     <%# Rappel, ""bookmark"" a 2 id, donc le find ne fonctionnera pas, on utilise donc find_by  %>
+       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
 
-
-      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <%# Ici, faire le design de la card : %>
+      <%# Pleins de designs :
+      - https://uikit.lewagon.com/documentation#card_category
+      - https://getbootstrap.com/docs/5.3/components/card/
+      - https://dribbble.com/tags/cards
+      - https://www.figma.com/fr-fr/communaute/file/1097964499926853798/100-card-design-templates-ui-kit
+      - etc %>
       <div class="">
         <%= movie.title %> - <%= movie.rating %>
         <p>
